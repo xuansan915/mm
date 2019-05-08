@@ -503,7 +503,14 @@ mtcnn::~mtcnn()
     delete []simpleFace_;
 }
 
-bool mtcnn::Init(int row, int col)
+bool mtcnn::reset(int row, int col, int minface)
+{
+    delete []simpleFace_;
+    scales_.clear();
+    return Init(row,col,minface);
+}
+
+bool mtcnn::Init(int row, int col,int minsize)
 {
     nms_threshold[0] = 0.6;
     nms_threshold[1] = 0.7;
@@ -511,7 +518,7 @@ bool mtcnn::Init(int row, int col)
 
     float minl = row>col?row:col;
     int MIN_DET_SIZE = 12;
-    int minsize = 200;
+    //int minsize = 200;
     float m = (float)MIN_DET_SIZE/minsize;
     minl *= m;
     float factor = 0.7;

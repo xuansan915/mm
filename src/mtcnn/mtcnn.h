@@ -139,7 +139,8 @@ public:
     mtcnn();
     virtual ~mtcnn();
 
-    virtual bool Init(int row, int col) override;
+    virtual bool Init(int row, int col,int minsize) override;
+        virtual bool reset(int row, int col, int minface)override;
     virtual void findFace(cv::Mat &image) override;
 
     //vector<struct Bbox> thirdBbox_;

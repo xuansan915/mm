@@ -22,13 +22,18 @@ FaceReconize::~FaceReconize()
 
 }
 
+void FaceReconize::ResetDetector(int imageWidth, int imageHeight,int minsize)
+{
+    m_pEigenValue->ResetDetector( imageWidth,  imageHeight, minsize);
+}
 
-bool FaceReconize::Init(const std::string &strModelPath, float minSimilarity,int imageWidth, int imageHeight, int index)
+
+bool FaceReconize::Init(const std::string &strModelPath, float minSimilarity,int imageWidth, int imageHeight,int minsize, int index)
 {
     m_minSimilarity = minSimilarity;
     //        std::cout <<"m_minSimilarity : "<<  "   "<< m_minSimilarity<< std::endl;
 
-    return m_pEigenValue->Init(strModelPath,imageWidth,imageHeight,index);
+    return m_pEigenValue->Init(strModelPath,imageWidth,imageHeight, minsize,index);
 }
 
 bool FaceReconize::UnInit()

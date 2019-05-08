@@ -20,9 +20,11 @@ struct Bbox
 class IFaceDetect
 {
 public:
-    virtual ~IFaceDetect(){};
+    virtual ~IFaceDetect() {};
 
-    virtual bool Init(int row, int col) = 0;
+    virtual bool Init(int row, int col,int minsize) = 0;
+    virtual bool reset(int row, int col, int minface) =0;
+
     virtual void findFace(cv::Mat &image) = 0;
 
     std::vector<struct Bbox> thirdBbox_;

@@ -15,7 +15,7 @@ public:
      *
      *  @return 是否初始化成功
      */
-    virtual bool Init(const std::string &strModelPath,int imageWidth, int imageHeight, int index);
+    virtual bool Init(const std::string &strModelPath,int imageWidth, int imageHeight,int minsize, int index);
     /**
      *  功能描述:
      *

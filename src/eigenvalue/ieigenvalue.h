@@ -45,7 +45,7 @@ public:
      *
      *  @return 是否初始化成功
      */
-    virtual bool Init(const std::string &strModelPath,int imageWidth, int imageHeight, int index) = 0;
+    virtual bool Init(const std::string &strModelPath,int imageWidth, int imageHeight,int minsize, int index) = 0;
     /**
      *  功能描述:
      *
@@ -77,12 +77,15 @@ public:
      *  @return
      */
     void CutFaceImage(cv::Mat &source,cv::Mat &maxface, bool bJustDetect = false);
+
+    bool ResetDetector(int imageWidth, int imageHeight, int min_size);
+
 protected:
     IReasoningMachine       *m_pIReasonMachine;
     IFaceDetect             *m_pFaceDetect;
     std::vector<float>      m_closed_eye_coef_left;
     std::vector<float>      m_closed_eye_coef_right;
-              //  dlib::shape_predictor pose_model_eyelid;
+    //  dlib::shape_predictor pose_model_eyelid;
 
 };
 

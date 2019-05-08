@@ -12,6 +12,11 @@ IEigenValue::~IEigenValue()
 {
 }
 
+bool IEigenValue::ResetDetector(int imageWidth, int imageHeight, int min_size)
+{
+    m_pFaceDetect->reset(imageWidth,imageHeight, min_size);
+}
+
 void IEigenValue::CutFaceImage(cv::Mat &source,cv::Mat &maxface, bool bJustDetect)
 {
     m_pFaceDetect->thirdBbox_.clear();

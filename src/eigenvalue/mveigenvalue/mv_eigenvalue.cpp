@@ -13,11 +13,11 @@ mv_eigenvalue::~mv_eigenvalue()
     //dtor
 }
 
-bool mv_eigenvalue::Init(const std::string &strModelPath,int imageWidth, int imageHeight, int index)
+bool mv_eigenvalue::Init(const std::string &strModelPath,int imageWidth, int imageHeight,int minsize, int index)
 {
     m_pFaceDetect = new mtcnn;
     m_pIReasonMachine = new mv_reasonmachine(strModelPath, index, NETWORK_IMAGE_WIDTH, NETWORK_IMAGE_HEIGHT);
-    return m_pIReasonMachine->Init() && m_pFaceDetect->Init(imageWidth,imageHeight);
+    return m_pIReasonMachine->Init() && m_pFaceDetect->Init(imageWidth,imageHeight, minsize);
 }
 
 bool mv_eigenvalue::UnInit()

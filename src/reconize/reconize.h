@@ -41,7 +41,9 @@ public:
      *
      *  @return 是否初始化成功
      */
-    bool Init(const std::string &strModelPath, float fminSimilarity,int imageWidth, int imageHeight, int index);
+    bool Init(const std::string &strModelPath, float fminSimilarity,int imageWidth, int imageHeight,int minsize, int index);
+
+    void ResetDetector(int imageWidth, int imageHeight,int minsize);
     /**
      *  功能描述:
      *
